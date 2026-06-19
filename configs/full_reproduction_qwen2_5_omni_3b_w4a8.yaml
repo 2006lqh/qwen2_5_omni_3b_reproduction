@@ -1,0 +1,37 @@
+run:
+  id: full_reproduction_w4a8_20260524
+  previous_small_experiment_prefix: exp3_
+  output_dir: ${PROJECT_ROOT:-.}/outputs/full_reproduction_w4a8_20260524
+  result_dir: ${PROJECT_ROOT:-.}/results/full_reproduction_w4a8_20260524
+
+paths:
+  root: ${PROJECT_ROOT:-.}
+  model_dir: ${MODEL_DIR:-/path/to/Qwen2.5-Omni-3B}
+  masquant_dir: ${PROJECT_ROOT:-.}/third_party/EfficientAI/masquant
+  local_calibration_jsonl: ${PROJECT_ROOT:-.}/third_party/EfficientAI/masquant/data/jsonls/omnibench.jsonl
+
+quantization:
+  method: MASQuant
+  model: Qwen2.5-Omni-3B
+  target_module: thinker
+  dataset_type: text-audio-vision
+  wbits: 4
+  abits: 8
+  nsamples: 128
+  epochs: 2
+  batch_size: 1
+  rank_ratio: 0.05
+  rank_absolute_for_proxy: 128
+  inference_modes:
+    baseline: merged_scales
+    mas: split_scales
+
+benchmark_env:
+  librispeech: LIBRISPEECH_DIR
+  wenetspeech: WENETSPEECH_DIR
+  mmmu: MMMU_DIR
+  ocrbench: OCRBENCH_DIR
+  textvqa: TEXTVQA_DIR
+  vizwiz: VIZWIZ_DIR
+  scienceqa: SCIENCEQA_DIR
+  omnibench: OMNIBENCH_DIR

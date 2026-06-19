@@ -1,0 +1,18 @@
+# Optional paper-level reproduction dependencies.
+# Install these only after the minimal runtime is stable:
+#
+#   source ~/miniconda3/etc/profile.d/conda.sh
+#   conda activate llm_quant
+#   python -m pip install -r requirements-paper.txt
+#
+# Notes:
+# - lmms-eval may pull a broad evaluation stack. Re-check transformers==4.52.3
+#   after installation.
+# - flash-attn is intentionally not installed by default. It requires a matching
+#   CUDA/PyTorch/compiler setup and nvcc is currently not on PATH.
+
+lmms-eval
+jiwer
+
+# Optional, install manually only if nvcc/CUDA/PyTorch are confirmed compatible:
+# flash-attn==2.7.4.post1

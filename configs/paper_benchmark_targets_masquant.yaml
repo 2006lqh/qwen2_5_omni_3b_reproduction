@@ -1,0 +1,97 @@
+paper:
+  pdf: ${MASQUANT_PAPER_PDF:-/path/to/MASQuant.pdf}
+  result_dir: ${PROJECT_ROOT:-.}/results/paper_benchmark_review_20260524
+
+models:
+  omni:
+    - Qwen2.5-Omni-3B
+    - Qwen2.5-Omni-7B
+  vision_language:
+    - Qwen2.5-VL-3B
+    - Qwen2.5-VL-7B
+
+methods:
+  baselines:
+    - Dense FP16
+    - RTN
+    - AWQ
+    - SmoothQuant
+    - MBQ
+  target:
+    - MASQuant
+
+bit_settings:
+  - W4A16
+  - W8A8
+  - W4A8
+  - W4A6
+
+benchmarks:
+  omni_table_2:
+    - name: LibriSpeech
+      split: test-other
+      modality: audio-text
+      metric: WER
+      direction: lower
+      env: LIBRISPEECH_DIR
+    - name: WenetSpeech
+      split: test-net
+      modality: audio-text
+      metric: WER
+      direction: lower
+      env: WENETSPEECH_DIR
+    - name: MMMU
+      split: default
+      modality: vision-text
+      metric: accuracy
+      direction: higher
+      env: MMMU_DIR
+    - name: OmniBench
+      split: default
+      modality: vision-audio-text
+      metric: accuracy
+      direction: higher
+      env: OMNIBENCH_DIR
+  vl_table_1:
+    - name: MMMU
+      split: default
+      modality: vision-text
+      metric: accuracy
+      direction: higher
+      env: MMMU_DIR
+    - name: OCRBench
+      split: default
+      modality: vision-text
+      metric: accuracy
+      direction: higher
+      env: OCRBENCH_DIR
+    - name: VizWiz
+      split: default
+      modality: vision-text
+      metric: accuracy
+      direction: higher
+      env: VIZWIZ_DIR
+    - name: ScienceQA
+      split: default
+      modality: vision-text
+      metric: accuracy
+      direction: higher
+      env: SCIENCEQA_DIR
+    - name: TextVQA
+      split: default
+      modality: vision-text
+      metric: accuracy
+      direction: higher
+      env: TEXTVQA_DIR
+
+analysis:
+  modality_aware_smoothing_table_3:
+    bit_setting: W4A8
+    compared_modes:
+      - Uniform
+      - MAS
+      - Uniform optimized
+      - MAS optimized
+  cmc_figure_6:
+    metric: SQNR
+    rank_ratio: [0.01, 0.02, 0.05, 0.08, 0.10, 0.20, 0.40]

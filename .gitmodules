@@ -1,0 +1,4 @@
+[submodule "third_party/EfficientAI"]
+	path = third_party/EfficientAI
+	url = https://github.com/alibaba/EfficientAI.git
+	ignore = dirty

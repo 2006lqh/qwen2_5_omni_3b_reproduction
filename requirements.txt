@@ -1,0 +1,19 @@
+# Minimal Qwen2.5-Omni-3B runtime dependencies for the WSL llm_quant env.
+# Do not freeze the whole conda environment here.
+
+transformers==4.52.3
+accelerate
+qwen-omni-utils[decord]
+huggingface_hub
+safetensors
+soundfile
+librosa
+pillow
+torchvision==0.26.0
+torchaudio==2.11.0
+sentencepiece
+protobuf
+
+# PyTorch itself is intentionally not listed: check the existing conda env first.
+# Current WSL llm_quant uses torch==2.11.0+cu130, so torchvision/torchaudio are
+# pinned to the matching 0.26.0 / 2.11.0 family.

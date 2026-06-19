@@ -1,0 +1,96 @@
+project:
+  name: masquant_qwen2_5_omni_3b
+  paper: MASQuant: Modality-Aware Smoothing Quantization for Multimodal Large Language Models
+  target_environment: ${MASQUANT_CONDA_ENV:-llm_quant}
+  project_root: ${PROJECT_ROOT:-.}
+
+model:
+  id: Qwen/Qwen2.5-Omni-3B
+  local_path: ${MODEL_DIR:-/path/to/Qwen2.5-Omni-3B}
+  download_status: external_not_tracked
+  local_text_sanity_check: passed
+  family: Qwen2.5-Omni
+  modalities:
+    - text
+    - image
+    - audio
+    - video
+
+official_code:
+  repo_url: https://github.com/alibaba/EfficientAI
+  repo_path: ${PROJECT_ROOT:-.}/third_party/EfficientAI
+  expected_local_path: ${PROJECT_ROOT:-.}/third_party/EfficientAI/masquant
+  status: submodule_with_patch
+  patch: patches/efficientai_masquant_qwen2_5_omni_w4a8.patch
+
+environment:
+  python: "3.10"
+  transformers: "4.52.3"
+  torch: "2.11.0+cu130"
+  ffmpeg: required
+  flash_attn: optional_not_default
+
+quantization:
+  primary_trial:
+    method: MASQuant
+    wbits: 4
+    abits: 8
+    dataset_type: text-audio-vision
+    nsamples: 128
+    epochs: 2
+  paper_bit_settings:
+    - W4A16
+    - W8A8
+    - W4A8
+    - W4A6
+  baselines:
+    - RTN
+    - AWQ
+    - SmoothQuant
+    - MBQ
+
+mas:
+  loss: modality_balanced_reconstruction_mae
+  modality_loss_weights:
+    text: 1.0
+    vision: 1.0
+    audio: 1.0
+
+cmc:
+  base_modality: text
+  default_rank_ratio: 0.05
+  calibration_data_type: text-audio-vision
+
+benchmarks:
+  audio_text:
+    - name: LibriSpeech test-other
+      metric: WER
+      env_var: LIBRISPEECH_DIR
+    - name: WenetSpeech test-net
+      metric: WER
+      env_var: WENETSPEECH_DIR
+  vision_text:
+    - name: MMMU
+      metric: accuracy
+      env_var: MMMU_DIR
+    - name: OCRBench
+      metric: accuracy
+      env_var: OCRBENCH_DIR
+    - name: TextVQA
+      metric: accuracy
+      env_var: TEXTVQA_DIR
+    - name: VizWiz
+      metric: accuracy
+      env_var: VIZWIZ_DIR
+    - name: ScienceQA
+      metric: accuracy
+      env_var: SCIENCEQA_DIR
+  vision_audio_text:
+    - name: OmniBench
+      metric: accuracy
+      env_var: OMNIBENCH_DIR
+
+local_hardware_note:
+  gpu: NVIDIA GeForce RTX 4050 Laptop GPU
+  vram_gb: 6
+  suitability: good_for_sanity_check_but_tight_for_full_masquant_reproduction

@@ -1,0 +1,20 @@
+{
+  "smoothquant_unified": {
+    "mean_error_avg": 0.42510686856177116,
+    "mean_error_min": 0.42510686856177116,
+    "mean_error_max": 0.42510686856177116,
+    "mean_sqnr_db_avg": 8.441244234641394
+  },
+  "mas_split_scales": {
+    "mean_error_avg": 0.23376821064286765,
+    "mean_error_min": 0.23376821064286762,
+    "mean_error_max": 0.23376821064286762,
+    "mean_sqnr_db_avg": 12.859691447681849
+  },
+  "simplified_cmc": {
+    "mean_error_avg": 0.375368629478746,
+    "mean_error_min": 0.375368629478746,
+    "mean_error_max": 0.375368629478746,
+    "mean_sqnr_db_avg": 9.674645943774117
+  }
+}

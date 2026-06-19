@@ -1,0 +1,12 @@
+{
+  "results": {
+    "librispeech_test_other": {
+      "alias": "librispeech_test_other",
+      "wer,none": 133.33333333333331,
+      "wer_stderr,none": "N/A",
+      "wer_stderr_clt,none": "N/A",
+      "wer_stderr_clustered,none": "N/A"
+    }
+  },
+  "recovered_from_log": true
+}
