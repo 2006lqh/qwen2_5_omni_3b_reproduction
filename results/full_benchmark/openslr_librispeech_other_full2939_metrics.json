@@ -1,0 +1,33 @@
+{
+  "benchmark": "openslr_librispeech_other",
+  "dataset": "OpenSLR LibriSpeech test-other",
+  "model": "Qwen2.5-Omni-3B",
+  "method": "MASQuant with CMC adapters",
+  "quantization": {
+    "weights": 4,
+    "activations": 8,
+    "format": "W4A8",
+    "rank": 0.05,
+    "quant_cmc": true,
+    "n_cali_samples": 1,
+    "attn_implementation": "sdpa"
+  },
+  "evaluation": {
+    "samples_completed": 2939,
+    "samples_total": 2939,
+    "metric": "wer",
+    "wer": 2.878264524387215,
+    "wer_stderr": "N/A"
+  },
+  "runtime": {
+    "started_at": "2026-06-11 21:38:43",
+    "finished_at": "2026-06-17 15:40:47",
+    "generation_elapsed": "138:01:31",
+    "postprocessing_elapsed": "00:19"
+  },
+  "provenance": {
+    "source": "Sanitized summary extracted from the completed local benchmark logs under the external results directory.",
+    "raw_logs_tracked": false,
+    "large_artifacts_tracked": false
+  }
+}

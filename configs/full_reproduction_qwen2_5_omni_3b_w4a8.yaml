@@ -1,8 +1,7 @@
 run:
-  id: full_reproduction_w4a8_20260524
-  previous_small_experiment_prefix: exp3_
+  id: qwen2_5_omni_3b_w4a8_librispeech_full2939
   output_dir: ${PROJECT_ROOT:-.}/outputs/full_reproduction_w4a8_20260524
-  result_dir: ${PROJECT_ROOT:-.}/results/full_reproduction_w4a8_20260524
+  result_dir: ${PROJECT_ROOT:-.}/results/full_benchmark
 
 paths:
   root: ${PROJECT_ROOT:-.}
@@ -21,7 +20,7 @@ quantization:
   epochs: 2
   batch_size: 1
   rank_ratio: 0.05
-  rank_absolute_for_proxy: 128
+  low_rank_adapter_ratio: 0.05
   inference_modes:
     baseline: merged_scales
     mas: split_scales

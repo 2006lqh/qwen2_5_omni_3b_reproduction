@@ -5,14 +5,14 @@
 | Path | Role |
 | --- | --- |
 | `configs/` | Reproduction configuration templates. |
-| `scripts/` | Environment checks, model checks, proxy experiments, benchmark runs, and result collection. |
-| `benchmarks/lmms_paper_tasks/` | Local `lmms_eval` task wrappers used for paper benchmark smoke runs. |
+| `scripts/` | Environment checks and benchmark entry points. |
+| `benchmarks/lmms_paper_tasks/` | Local `lmms_eval` task wrappers. |
 | `third_party/EfficientAI/masquant/` | Upstream MASQuant source after applying the local compatibility patch. |
 | `patches/` | Patch file required to reproduce the local MASQuant runtime changes. |
 | `outputs/` | Local generated tensors, parameters, logs, and benchmark outputs. This directory is not tracked by Git. |
-| `results/` | Curated public CSV/JSON/Markdown summaries. |
+| `results/full_benchmark/` | Curated full-benchmark summaries retained for public reporting. |
 
-Model weights are expected outside the repository and should be supplied through `MODEL_DIR`.
+Model weights and generated MASQuant tensors are expected outside the repository and should be supplied through environment variables.
 
 ## MAS Code Locations
 
@@ -26,17 +26,17 @@ Model weights are expected outside the repository and should be supplied through
 
 | File | Focus |
 | --- | --- |
-| `third_party/EfficientAI/masquant/infer_mas.py` | Official MAS/CMC inference entry point. |
-| `third_party/EfficientAI/masquant/quantize/svd_utils.py` | Computes `qsmW - qstW` and performs low-rank decomposition. |
+| `third_party/EfficientAI/masquant/infer_mas.py` | MAS/CMC inference entry point. |
+| `third_party/EfficientAI/masquant/quantize/svd_utils.py` | Computes low-rank CMC adapter factors. |
 | `third_party/EfficientAI/masquant/quantize/infer_quant.py` | Loads low-rank adapters during inference. |
-| `scripts/run_exp3_weight_proxy.py` | Local simplified CMC proxy used for 6GB-GPU validation. |
+| `scripts/run_openslr_librispeech_full_benchmark_w4a8.sh` | Full OpenSLR LibriSpeech benchmark entry point. |
 
-## Validation Summary
+## Retained Result
 
-The three-run proxy validation is stored in:
+The retained public benchmark result is stored in:
 
-- `results/exp3_validation/masquant_w4a8_three_run_comparison.csv`
-- `results/exp3_validation/masquant_w4a8_three_run_report.md`
-- `results/exp3_validation/masquant_w4a8_three_run_mean_error.svg`
+- `results/full_benchmark/openslr_librispeech_other_full2939_summary.md`
+- `results/full_benchmark/openslr_librispeech_other_full2939_metrics.json`
+- `results/full_benchmark/openslr_librispeech_other_full2939_metrics.csv`
 
-The three runs were identical under the tested setting. MAS split-scale smoothing had the lowest reconstruction error; simplified CMC improved over unified SmoothQuant but did not match MAS-only in the proxy metric.
+The completed OpenSLR LibriSpeech `test-other` run evaluated 2939 / 2939 samples and produced WER `2.878264524387215`.

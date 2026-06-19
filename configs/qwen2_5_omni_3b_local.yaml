@@ -16,6 +16,6 @@ quantization:
   calibration_size: 128
 
 reproduction:
-  stage: w4a8_proxy_and_benchmark_smoke
+  stage: w4a8_full_librispeech_benchmark
   model: Qwen2.5-Omni-3B
   paper: MASQuant

@@ -1,6 +1,6 @@
 paper:
   pdf: ${MASQUANT_PAPER_PDF:-/path/to/MASQuant.pdf}
-  result_dir: ${PROJECT_ROOT:-.}/results/paper_benchmark_review_20260524
+  result_dir: ${PROJECT_ROOT:-.}/results/full_benchmark
 
 models:
   omni:

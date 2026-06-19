@@ -1,0 +1,2 @@
+benchmark,model,method,quantization,samples,wer,run_started,run_finished,generation_elapsed,postprocessing_elapsed,n_cali_samples,rank,quant_cmc,attn_implementation
+openslr_librispeech_other,Qwen2.5-Omni-3B,MASQuant with CMC adapters,W4A8,2939,2.878264524387215,2026-06-11 21:38:43,2026-06-17 15:40:47,138:01:31,00:19,1,0.05,1,sdpa

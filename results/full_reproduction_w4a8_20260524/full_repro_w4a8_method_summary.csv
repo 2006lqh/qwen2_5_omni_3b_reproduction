@@ -1,4 +1,0 @@
-method,mean_error,mean_sqnr_db,description
-smoothquant_unified,0.3705041770029951,9.027116290581079,one shared smoothing scale for text/audio/vision
-mas_split_scales,0.1987160335260409,14.131121032031967,modality-specific text/vision/audio smoothing scales
-simplified_cmc,0.3008727204560498,10.98475232499617,text base quantized weight plus rank-k low-rank modality delta
