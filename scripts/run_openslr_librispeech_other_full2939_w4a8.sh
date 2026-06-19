@@ -6,9 +6,10 @@ MODEL="${MODEL_DIR:?MODEL_DIR must point to the local Qwen2.5-Omni-3B checkpoint
 MAS_PARAMS="${MAS_PARAMS:?MAS_PARAMS must point to mas_parameters.pth}"
 LOW_RANK_ADAPTERS="${LOW_RANK_ADAPTERS:?LOW_RANK_ADAPTERS must point to the CMC low-rank adapter tensor}"
 MAS_ROOT="$ROOT/third_party/EfficientAI/masquant"
-OUT="${BENCHMARK_OUTPUT_DIR:-$ROOT/outputs/openslr_librispeech_other_full2939}"
-CACHE_DIR="${BENCHMARK_CACHE_DIR:-$OUT/cache}"
-LOG_DIR="${BENCHMARK_LOG_DIR:-$OUT/logs}"
+ARTIFACT_ROOT="${LOCAL_ARTIFACT_ROOT:-$ROOT/../local_artifacts}"
+RUN_ROOT="${BENCHMARK_OUTPUT_DIR:-$ARTIFACT_ROOT/raw_results/qwen2_5_omni_3b_w4a8/full_benchmark/openslr_librispeech_other_full2939}"
+CACHE_DIR="${BENCHMARK_CACHE_DIR:-$RUN_ROOT/cache}"
+LOG_DIR="${BENCHMARK_LOG_DIR:-$RUN_ROOT/logs}"
 
 CONDA_SH="${CONDA_SH:-$HOME/miniconda3/etc/profile.d/conda.sh}"
 CONDA_ENV="${MASQUANT_CONDA_ENV:-llm_quant}"

@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 set -u
 
-MODEL_DIR="${MODEL_DIR:-../models/Qwen2.5-Omni-3B}"
+PROJECT_ROOT="${PROJECT_ROOT:-$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)}"
+MODEL_DIR="${MODEL_DIR:-$PROJECT_ROOT/../local_artifacts/models/Qwen2.5-Omni-3B}"
 warnings=0
 
 ok() { printf '[ok] %s\n' "$1"; }

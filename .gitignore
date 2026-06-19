@@ -12,6 +12,7 @@ venv/
 .cache/
 hf_cache/
 models/
+local_artifacts/
 downloads/
 outputs/
 logs/
@@ -35,7 +36,7 @@ third_party/EfficientAI/masquant/*.egg-info/
 # Keep only curated, shareable result summaries
 results/**
 !results/
-!results/README_project_files_and_key_code.md
+!results/README.md
 !results/full_benchmark/
 !results/full_benchmark/openslr_librispeech_other_full2939_metrics.csv
 !results/full_benchmark/openslr_librispeech_other_full2939_metrics.json

@@ -1,13 +1,15 @@
 run:
   id: qwen2_5_omni_3b_w4a8_librispeech_full2939
-  output_dir: ${PROJECT_ROOT:-.}/outputs/full_reproduction_w4a8_20260524
+  output_dir: ${PROJECT_ROOT:-.}/../local_artifacts/raw_results/qwen2_5_omni_3b_w4a8/full_benchmark/openslr_librispeech_other_full2939
   result_dir: ${PROJECT_ROOT:-.}/results/full_benchmark
 
 paths:
   root: ${PROJECT_ROOT:-.}
-  model_dir: ${MODEL_DIR:-/path/to/Qwen2.5-Omni-3B}
+  model_dir: ${MODEL_DIR:-../local_artifacts/models/Qwen2.5-Omni-3B}
   masquant_dir: ${PROJECT_ROOT:-.}/third_party/EfficientAI/masquant
   local_calibration_jsonl: ${PROJECT_ROOT:-.}/third_party/EfficientAI/masquant/data/jsonls/omnibench.jsonl
+  mas_parameters: ${MAS_PARAMS:-../local_artifacts/model_artifacts/qwen2_5_omni_3b_w4a8/mas_parameters/mas_parameters.pth}
+  low_rank_adapters: ${LOW_RANK_ADAPTERS:-../local_artifacts/model_artifacts/qwen2_5_omni_3b_w4a8/cmc_adapters/cmc_full128_low_rank_adapters.pt}
 
 quantization:
   method: MASQuant

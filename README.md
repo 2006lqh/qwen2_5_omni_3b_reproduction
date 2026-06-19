@@ -16,7 +16,8 @@ The retained public result is the completed OpenSLR LibriSpeech `test-other` ben
 ## Repository Layout
 
 ```text
-benchmarks/lmms_paper_tasks/     Local lmms-eval task wrappers
+docs/                            Reproduction report and directory documentation
+benchmarks/lmms_eval_tasks/      Local lmms-eval task wrappers
 configs/                         Reproduction configuration templates
 patches/                         Patch applied to the upstream EfficientAI checkout
 scripts/                         Environment checks and reproduction entry points
@@ -24,7 +25,6 @@ third_party/EfficientAI/         Upstream EfficientAI repository, tracked as a s
 results/full_benchmark/          Curated public full-benchmark result summaries
 requirements*.txt                Python dependency notes
 sanity_check.py                  Minimal local model loading check
-PAPER_REPRODUCTION.md            Reproduction status and result details
 ```
 
 ## Setup
@@ -54,9 +54,9 @@ Prepare the Python environment with the package versions listed in `requirements
 
 ```bash
 export PROJECT_ROOT="$(pwd)"
-export MODEL_DIR="/path/to/Qwen2.5-Omni-3B"
-export MAS_PARAMS="/path/to/mas_parameters.pth"
-export LOW_RANK_ADAPTERS="/path/to/low_rank_adapters.pt"
+export MODEL_DIR="$PROJECT_ROOT/../local_artifacts/models/Qwen2.5-Omni-3B"
+export MAS_PARAMS="$PROJECT_ROOT/../local_artifacts/model_artifacts/qwen2_5_omni_3b_w4a8/mas_parameters/mas_parameters.pth"
+export LOW_RANK_ADAPTERS="$PROJECT_ROOT/../local_artifacts/model_artifacts/qwen2_5_omni_3b_w4a8/cmc_adapters/cmc_full128_low_rank_adapters.pt"
 export MASQUANT_CONDA_ENV="llm_quant"
 ```
 
@@ -68,13 +68,13 @@ Run structure and dependency checks:
 
 ```bash
 bash scripts/check_paper_repro_ready.sh
-python scripts/full_repro_config_check.py
+python scripts/check_full_benchmark_config.py
 ```
 
 Run the retained full benchmark:
 
 ```bash
-bash scripts/run_openslr_librispeech_full_benchmark_w4a8.sh
+bash scripts/run_openslr_librispeech_other_full2939_w4a8.sh
 ```
 
 The benchmark script expects `MODEL_DIR`, `MAS_PARAMS`, and `LOW_RANK_ADAPTERS` to point to local artifacts generated outside Git.
@@ -94,3 +94,5 @@ Result files:
 ## Reproducibility Notes
 
 The retained metric is a sanitized summary extracted from the completed benchmark logs. Raw logs are excluded because they contain machine-local paths, and binary artifacts are excluded because they are large generated tensors. The public files in `results/full_benchmark/` are the only tracked result artifacts.
+
+See `docs/directory_structure.md` and `docs/local_artifact_layout.md` for the complete repository and local workspace layout.

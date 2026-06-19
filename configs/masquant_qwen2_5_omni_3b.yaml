@@ -6,7 +6,7 @@ project:
 
 model:
   id: Qwen/Qwen2.5-Omni-3B
-  local_path: ${MODEL_DIR:-/path/to/Qwen2.5-Omni-3B}
+  local_path: ${MODEL_DIR:-../local_artifacts/models/Qwen2.5-Omni-3B}
   download_status: external_not_tracked
   local_text_sanity_check: passed
   family: Qwen2.5-Omni
@@ -90,7 +90,8 @@ benchmarks:
       metric: accuracy
       env_var: OMNIBENCH_DIR
 
-local_hardware_note:
-  gpu: NVIDIA GeForce RTX 4050 Laptop GPU
-  vram_gb: 6
-  suitability: good_for_sanity_check_but_tight_for_full_masquant_reproduction
+artifact_policy:
+  local_artifacts_dir: ${PROJECT_ROOT:-.}/../local_artifacts
+  tracked_results: ${PROJECT_ROOT:-.}/results/full_benchmark
+  raw_logs_tracked: false
+  tensor_artifacts_tracked: false

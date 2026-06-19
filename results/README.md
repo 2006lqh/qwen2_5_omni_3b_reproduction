@@ -6,7 +6,7 @@
 | --- | --- |
 | `configs/` | Reproduction configuration templates. |
 | `scripts/` | Environment checks and benchmark entry points. |
-| `benchmarks/lmms_paper_tasks/` | Local `lmms_eval` task wrappers. |
+| `benchmarks/lmms_eval_tasks/` | Local `lmms_eval` task wrappers. |
 | `third_party/EfficientAI/masquant/` | Upstream MASQuant source after applying the local compatibility patch. |
 | `patches/` | Patch file required to reproduce the local MASQuant runtime changes. |
 | `outputs/` | Local generated tensors, parameters, logs, and benchmark outputs. This directory is not tracked by Git. |
@@ -29,7 +29,7 @@ Model weights and generated MASQuant tensors are expected outside the repository
 | `third_party/EfficientAI/masquant/infer_mas.py` | MAS/CMC inference entry point. |
 | `third_party/EfficientAI/masquant/quantize/svd_utils.py` | Computes low-rank CMC adapter factors. |
 | `third_party/EfficientAI/masquant/quantize/infer_quant.py` | Loads low-rank adapters during inference. |
-| `scripts/run_openslr_librispeech_full_benchmark_w4a8.sh` | Full OpenSLR LibriSpeech benchmark entry point. |
+| `scripts/run_openslr_librispeech_other_full2939_w4a8.sh` | Full OpenSLR LibriSpeech benchmark entry point. |
 
 ## Retained Result
 

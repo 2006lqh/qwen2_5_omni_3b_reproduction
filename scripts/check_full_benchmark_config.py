@@ -9,11 +9,13 @@ from pathlib import Path
 
 
 ROOT = Path(os.environ.get("PROJECT_ROOT", Path(__file__).resolve().parents[1]))
-MODEL_DIR = Path(os.environ.get("MODEL_DIR", ROOT.parent / "models/Qwen2.5-Omni-3B"))
+MODEL_DIR = Path(os.environ.get("MODEL_DIR", ROOT.parent / "local_artifacts/models/Qwen2.5-Omni-3B"))
 MAS_ROOT = ROOT / "third_party/EfficientAI/masquant"
 RUN_ID = "openslr_librispeech_other_full2939"
-OUT_DIR = ROOT / "outputs" / RUN_ID
-RESULT_DIR = ROOT / "results" / "full_benchmark"
+ARTIFACT_ROOT = Path(os.environ.get("LOCAL_ARTIFACT_ROOT", ROOT.parent / "local_artifacts"))
+RUN_ROOT = ARTIFACT_ROOT / "raw_results/qwen2_5_omni_3b_w4a8/full_benchmark" / RUN_ID
+OUT_DIR = RUN_ROOT
+RESULT_DIR = RUN_ROOT / "summaries"
 
 
 PACKAGES = {

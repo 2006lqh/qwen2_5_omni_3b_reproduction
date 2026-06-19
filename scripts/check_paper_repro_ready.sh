@@ -3,10 +3,10 @@ set -u
 
 EXPECTED_ENV="${MASQUANT_CONDA_ENV:-llm_quant}"
 PROJECT_ROOT="${PROJECT_ROOT:-$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)}"
-MODEL_DIR="${MODEL_DIR:-$PROJECT_ROOT/../models/Qwen2.5-Omni-3B}"
+MODEL_DIR="${MODEL_DIR:-$PROJECT_ROOT/../local_artifacts/models/Qwen2.5-Omni-3B}"
 SOURCE_REPO="${PROJECT_ROOT}/third_party/EfficientAI"
 SOURCE_DIR="${SOURCE_REPO}/masquant"
-LOCAL_CONFIG="${PROJECT_ROOT}/configs/qwen2_5_omni_3b_local.yaml"
+LOCAL_CONFIG="${PROJECT_ROOT}/configs/local_environment.template.yaml"
 
 warnings=0
 failures=0
@@ -56,7 +56,7 @@ else
   fail "local config missing: $LOCAL_CONFIG"
 fi
 
-for dir in outputs results; do
+for dir in docs benchmarks configs patches results scripts third_party; do
   if [ -d "$PROJECT_ROOT/$dir" ]; then
     ok "$dir/ exists"
   else
