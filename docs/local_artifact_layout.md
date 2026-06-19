@@ -17,11 +17,9 @@ local_artifacts/
           logs/
           summaries/
   archived_local_runs/
-    small_validation_proxy_smoke_20260518_20260611/
-    repo_outputs_pre_full_benchmark_20260518_20260525/
 ```
 
-The public metric files in `results/full_benchmark/` are sanitized summaries extracted from these local artifacts. Raw logs are retained locally for auditability but are not uploaded because they include machine-local paths and verbose runtime output.
+The public metric files in `results/full_benchmark/` are sanitized summaries extracted from these local artifacts. Raw logs and historical local run folders are retained locally for auditability but are not uploaded because they include machine-local paths and verbose runtime output.
 
 ## Expected Environment Variables
 

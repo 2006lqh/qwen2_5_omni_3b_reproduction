@@ -8,7 +8,6 @@ qwen2_5_omni_3b_reproduction/
   CITATION.cff
   LICENSE
   docs/
-    reproduction_report.md
     directory_structure.md
     local_artifact_layout.md
   benchmarks/
@@ -26,7 +25,7 @@ qwen2_5_omni_3b_reproduction/
   third_party/
 ```
 
-Tracked files are limited to source code, configuration templates, compatibility patches, documentation, and sanitized result summaries. Generated logs, model weights, caches, and tensor artifacts must stay outside Git.
+Tracked files are limited to source code, configuration templates, compatibility patches, directory documentation, and sanitized result summaries. Generated logs, model weights, caches, tensor artifacts, and submission-package documents stay outside Git.
 
 ## Naming
 
