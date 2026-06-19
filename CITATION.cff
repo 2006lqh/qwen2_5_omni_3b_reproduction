@@ -1,0 +1,29 @@
+cff-version: 1.2.0
+message: "If you use this reproduction repository, please cite the original MASQuant paper."
+title: "Qwen2.5-Omni-3B MASQuant Reproduction"
+authors:
+  - name: "2006lqh"
+repository-code: "https://github.com/2006lqh/qwen2_5_omni_3b_reproduction"
+license: "MIT"
+preferred-citation:
+  type: article
+  title: "MASQuant: Modality-Aware Smoothing Quantization for Multimodal Large Language Models"
+  authors:
+    - family-names: "Hu"
+      given-names: "Lulu"
+    - family-names: "Xiao"
+      given-names: "Wenhu"
+    - family-names: "Chen"
+      given-names: "Xin"
+    - family-names: "Xu"
+      given-names: "Xinhua"
+    - family-names: "Xu"
+      given-names: "Bowen"
+    - family-names: "Li"
+      given-names: "Kun"
+    - family-names: "Tao"
+      given-names: "Yongliang"
+  year: 2026
+  identifiers:
+    - type: url
+      value: "https://arxiv.org/abs/2603.04800"

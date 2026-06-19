@@ -175,14 +175,14 @@ def main() -> int:
             local_files_only=args.local_files_only,
         )
 
-        conversation = [
+        messages = [
             {
                 "role": "system",
                 "content": [
                     {
                         "type": "text",
                         "text": (
-                            "You are Qwen, a helpful multimodal assistant. "
+                            "You are Qwen, a multimodal model. "
                             "For this check, answer with text only."
                         ),
                     }
@@ -195,7 +195,7 @@ def main() -> int:
         ]
 
         text = processor.apply_chat_template(
-            conversation,
+            messages,
             add_generation_prompt=True,
             tokenize=False,
         )
