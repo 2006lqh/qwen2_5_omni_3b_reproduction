@@ -27,6 +27,19 @@ requirements*.txt                Python dependency notes
 sanity_check.py                  Minimal local model loading check
 ```
 
+## Project Requirement Mapping
+
+| Requirement | Repository location |
+| --- | --- |
+| Complete reproduction report | `docs/reproduction_report.md` |
+| Method principle | `docs/reproduction_report.md`, section 1 |
+| Experimental workflow | `docs/reproduction_report.md`, section 2 |
+| Code details | `docs/reproduction_report.md`, section 3 |
+| Result comparison | `docs/reproduction_report.md`, section 4 |
+| Error analysis | `docs/reproduction_report.md`, section 5 |
+| Runnable source code | `scripts/`, `benchmarks/lmms_eval_tasks/`, `patches/`, `configs/` |
+| Submission checklist | `docs/submission_checklist.md` |
+
 ## Setup
 
 Clone with submodules:
